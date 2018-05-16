@@ -36,7 +36,7 @@ public class UpdateInfoActivity extends AppCompatActivity {
 
         cornellDB = new CornellDB(this);
 
-        studentArrayList = new ArrayList<>();
+        studentArrayList = new ArrayList<>();    
         stringArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, studentArrayList);
     }
 
