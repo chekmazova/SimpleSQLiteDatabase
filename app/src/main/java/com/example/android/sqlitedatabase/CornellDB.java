@@ -72,5 +72,18 @@ public class CornellDB extends SQLiteOpenHelper {
         return cursor;
     }
 
+    //Function to update student info
+    public int updateStudentInfo (int id, String first_name, String last_name, String address){
+        //The same function as insert
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("first_name", first_name);
+        contentValues.put("last_name", last_name);
+        contentValues.put("address", address);
+        return db.update(table_1, contentValues, column_1+"=?", new String[] {String.valueOf(id)});
+    }
+
+    public int deleteStudent(int id){
+        return db.delete(table_1, column_1+"=?", new String[]{String.valueOf(id)});
+    }
 
 }
