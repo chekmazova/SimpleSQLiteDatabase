@@ -14,6 +14,8 @@ public class CornellDB extends SQLiteOpenHelper {
     private static String table_1 = "tbl_Student";
     private Context context;
     private SQLiteDatabase db;
+    //define column_1 in order to search by ID
+    private static String column_1="ID";
 
     public CornellDB (Context context){
         super(context, database_name, null, database_edition);
@@ -60,4 +62,15 @@ public class CornellDB extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+    //Cursor for searching student by ID
+    public  Cursor getStudentById (int id){
+        Cursor cursor = db.query(table_1, null, column_1 + " =?", new String[]{id+""}, null, null, null);
+        if (cursor != null){
+            cursor.moveToFirst();
+        }
+        return cursor;
+    }
+
+
 }
